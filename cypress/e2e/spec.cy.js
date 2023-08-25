@@ -1,6 +1,14 @@
-import home from '../selectors/home.sel'
-import login from '../selectors/login.sel'
+import homeSelectors from '../selectors/home.sel'
+import loginSelectors from '../selectors/login.sel'
 import userHelpers from '../apiHelpers/user'
+
+function login(userName, userPassword){
+    cy.get(homeSelectors.loginLink).click()
+    cy.get(loginSelectors.loginWithEmailLink).click()
+    cy.get(loginSelectors.emailField).type(userName)
+    cy.get(loginSelectors.passwordField).type(userPassword)
+    return cy.get(loginSelectors.loginButton).click()
+}
 
 describe('Studysmarter page', () => {
   let userName = null;
@@ -15,18 +23,14 @@ describe('Studysmarter page', () => {
   })
 
   it('should allow a registered user to log in', () => {
-      cy.get(home.loginLink).click()
-      cy.get(login.loginWithEmailLink).click()
-      cy.get(login.emailField).type(userName)
-      cy.get(login.passwordField).type(userPassword)
-      cy.get(login.loginButton).click()
+      login(userName, userPassword)
 
       cy.contains('Welcome to StudySmarter!')
       cy.contains('Get started')
   })
 
   it('should allow a logged in user to create a study set', () => {
-
+    login(userName, userPassword)
   })
 
   it('should allow email registration via website', () => {      
