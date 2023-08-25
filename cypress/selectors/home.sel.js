@@ -1,3 +1,3 @@
 module.exports = {
-    continueToVaiaButton: "//a[text()='Continue to Vaia']"
+    loginLink: 'a[data-cy="sign-up-login-link"]'
 }

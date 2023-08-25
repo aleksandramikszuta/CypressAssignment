@@ -3,7 +3,11 @@ package-lock.json
 yarn.lock
 .vscode/
 .idea/
+
 .cypress/
+cypress/.DS_Store
 .cypress-local/
+
 videos/
 screenshots/
+.DS_Store

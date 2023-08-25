@@ -18,11 +18,12 @@ function registerUser(userEmail, userPassword) {
     })
 }
 
-function registerUserTimestamp() {
+function registerUserTimestamp(userPassword) {
     const currentDate = new Date()
     const timeStamp = currentDate.getTime()
     const email = timeStamp.toString()+"@test.com"
-    registerUser(email, 'sydriv-4pipwo-Ducdax')
+    registerUser(email, userPassword)
+    return email;
 }
 
 module.exports = {
