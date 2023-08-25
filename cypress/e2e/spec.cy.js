@@ -17,6 +17,9 @@ describe('Studysmarter page', () => {
   it('should allow a registered user to log in', () => {
       cy.get(home.loginLink).click()
       cy.get(login.loginWithEmailLink).click()
+      cy.get(login.emailField).type(userName)
+      cy.get(login.passwordField).type(userPassword)
+      cy.get(login.loginButton).click()
   })
 
   xit('should allow email registration via website', () => {      
