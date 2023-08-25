@@ -10,7 +10,7 @@ describe('Studysmarter page', () => {
     userName = userHelpers.registerUserTimestamp(userPassword)
   })
 
-  beforeEach(function(){
+  beforeEach(function() {
     cy.visit('https://demo.studysmarter-test.de');
   })
 
@@ -20,9 +20,16 @@ describe('Studysmarter page', () => {
       cy.get(login.emailField).type(userName)
       cy.get(login.passwordField).type(userPassword)
       cy.get(login.loginButton).click()
+
+      cy.contains('Welcome to StudySmarter!')
+      cy.contains('Get started')
   })
 
-  xit('should allow email registration via website', () => {      
+  it('should allow a logged in user to create a study set', () => {
+
+  })
+
+  it('should allow email registration via website', () => {      
       cy.contains('Sign up with email').click()
 
    });
