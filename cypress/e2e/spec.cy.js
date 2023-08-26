@@ -35,12 +35,7 @@ describe('Studysmarter page', () => {
   it('should allow a logged in user to create a study set', () => {
     login(userName, userPassword)
 
-    cy.get(onboardingSelectors.getStartedButton).click()
-    cy.get(onboardingSelectors.userGroupButton).contains(onboardingSelectors.schoolText).click()
-    cy.get(onboardingSelectors.schoolTypeButton).contains(onboardingSelectors.grundschuleText).click()
-    cy.get(onboardingSelectors.classLevelOption).contains(onboardingSelectors.firstClassText).click()
-    onboardingPage.selectSubject(onboardingSelectors.germanSubjectText)
-    cy.get('button').contains('Continue').click()
+  onboardingPage.performInitialUserConfig()
 
     cy.contains('You’re all set, let’s go!')
     onboardingPage.clickThroughTutorial()
