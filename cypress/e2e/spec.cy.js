@@ -43,10 +43,7 @@ describe('Studysmarter page', () => {
     cy.get('button').contains('Continue').click()
 
     cy.contains('You’re all set, let’s go!')
-    cy.get('button').contains('Continue').click()
-    cy.get('button').contains('Continue').click()
-    cy.get('button').contains('Continue').click()
-    cy.get('button').contains('Got it').click()
+    onboardingPage.clickThroughTutorial()
 
     cy.get(userHomePageSelectors.createStudySetButton).click()
   })
