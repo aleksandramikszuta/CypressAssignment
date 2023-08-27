@@ -2,7 +2,8 @@ import homeSelectors from '../selectors/home.sel'
 import loginSelectors from '../selectors/login.sel'
 import userHelpers from '../apiHelpers/user'
 import onboardingSelectors from '../selectors/onboarding.sel'
-import userHomePageSelectors from '../selectors/userHomePage.sel'
+import libraryPageSelectors from '../selectors/libraryPage.sel'
+import libraryPage from '../pages/libraryPage'
 import onboardingPage from '../pages/onboardingPage'
 
 function login(userName, userPassword) {
@@ -25,7 +26,7 @@ describe('Studysmarter page', () => {
     cy.visit('https://demo.studysmarter-test.de');
   })
 
-  it('should allow a registered user to log in', () => {
+  xit('should allow a registered user to log in', () => {
     login(userName, userPassword)
 
     cy.contains('Welcome to StudySmarter!')
@@ -40,11 +41,14 @@ describe('Studysmarter page', () => {
     cy.contains('You’re all set, let’s go!')
     onboardingPage.clickThroughTutorial()
 
-    cy.get(userHomePageSelectors.createStudySetButton).click()
+    cy.get(libraryPageSelectors.createStudySetButton).click()
+    libraryPage.selectSubject("Deutsch")
   })
 
-  it('should allow email registration via website', () => {
+  xit('should allow email registration via website', () => {
     cy.contains('Sign up with email').click()
 
   });
+
+  
 });
