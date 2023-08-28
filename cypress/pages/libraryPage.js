@@ -9,7 +9,22 @@ function createStudySet(){
     cy.get(libraryPageSelectors.createStudySetButton).click()
 }
 
+function setStudySetName(name) {
+    cy.get(libraryPageSelectors.studySetName).type(name)
+}
+
+function selectStudySetColor(colorName) {
+    cy.get(libraryPageSelectors.colorSelect).get('div[data-color="' + colorName + '"]').click()
+}
+
+function confirmStudySetCreate() {
+    cy.get(libraryPageSelectors.confirmStudySetCreate).click()
+}
+
 module.exports = {
     selectSubject: selectSubject,
-    createStudySet: createStudySet
+    createStudySet: createStudySet,
+    setStudySetName: setStudySetName,
+    selectStudySetColor: selectStudySetColor,
+    confirmStudySetCreate: confirmStudySetCreate 
 }

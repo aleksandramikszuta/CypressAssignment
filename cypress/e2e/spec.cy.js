@@ -42,6 +42,9 @@ describe('Studysmarter page', () => {
 
     libraryPage.createStudySet()
     libraryPage.selectSubject("Deutsch")
+    libraryPage.setStudySetName("Test Studyset")
+    libraryPage.selectStudySetColor("mint")
+    libraryPage.confirmStudySetCreate()
   })
 
   it('should allow email registration via website', () => {
