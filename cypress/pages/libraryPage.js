@@ -21,10 +21,25 @@ function confirmStudySetCreate() {
     cy.get(libraryPageSelectors.confirmStudySetCreate).click()
 }
 
+function assertColorEquals(colorName) {
+    cy.get(libraryPageSelectors.studySetCard).get('[data-color="' + colorName +'"]')
+}
+
+function assertNameEquals(studySetName) {
+    cy.get(libraryPageSelectors.studySetCardTitle).should('equal', studySetName)
+}
+
+function goToStudySet(studySetName) {
+    cy.get(libraryPageSelectors.studySetCardTitle).contains(studySetName).click()
+}
+
 module.exports = {
     selectSubject: selectSubject,
     createStudySet: createStudySet,
     setStudySetName: setStudySetName,
     selectStudySetColor: selectStudySetColor,
-    confirmStudySetCreate: confirmStudySetCreate 
+    confirmStudySetCreate: confirmStudySetCreate,
+    assertColorEquals: assertColorEquals,
+    assertNameEquals: assertNameEquals,
+    goToStudySet: goToStudySet
 }

@@ -4,5 +4,7 @@ module.exports = {
     subjectListItem:'ui-option[data-cy="maintopic-popup-subject-item"]',
     studySetName: 'input[data-cy="create-edit-studyset-studyset-name-input"]',
     colorSelect: 'div[data-cy="create-edit-studyset-choosecolor-wrapper"]',
-    confirmStudySetCreate: 'button[data-cy="create-edit-studyset-create-button"]'
+    confirmStudySetCreate: 'button[data-cy="create-edit-studyset-create-button"]',
+    studySetCardTitle: 'p[data-cy="studyset-card-title"]',
+    studySetCard: 'div[data-cy="studyset-card"]'
 }

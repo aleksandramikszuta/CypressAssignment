@@ -7,6 +7,7 @@ import onboardingSelectors from '../selectors/onboarding.sel'
 import libraryPageSelectors from '../selectors/library.sel'
 import libraryPage from '../pages/libraryPage'
 import onboardingPage from '../pages/onboardingPage'
+import studysetDetailsPage from '../pages/studySetDetailsPage'
 
 function login(userName, userPassword) {
   homePage.goToLoginPage()
@@ -45,6 +46,10 @@ describe('Studysmarter page', () => {
     libraryPage.setStudySetName("Test Studyset")
     libraryPage.selectStudySetColor("mint")
     libraryPage.confirmStudySetCreate()
+    libraryPage.goToStudySet("Test Studyset")
+
+    cy.contains("Test Studyset")
+    studysetDetailsPage.assertColorEquals("mint")
   })
 
   it('should allow email registration via website', () => {
