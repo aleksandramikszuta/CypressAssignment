@@ -1,17 +1,16 @@
 import homeSelectors from '../selectors/home.sel'
+import homePage from '../pages/homePage'
 import loginSelectors from '../selectors/login.sel'
+import loginPage from '../pages/loginPage'
 import userHelpers from '../apiHelpers/user'
 import onboardingSelectors from '../selectors/onboarding.sel'
-import libraryPageSelectors from '../selectors/libraryPage.sel'
+import libraryPageSelectors from '../selectors/library.sel'
 import libraryPage from '../pages/libraryPage'
 import onboardingPage from '../pages/onboardingPage'
 
 function login(userName, userPassword) {
-  cy.get(homeSelectors.loginLink).click()
-  cy.get(loginSelectors.loginWithEmailLink).click()
-  cy.get(loginSelectors.emailField).type(userName)
-  cy.get(loginSelectors.passwordField).type(userPassword)
-  return cy.get(loginSelectors.loginButton).click()
+  homePage.goToLoginPage()
+  loginPage.login(userName, userPassword)
 }
 
 describe('Studysmarter page', () => {
@@ -41,7 +40,7 @@ describe('Studysmarter page', () => {
     cy.contains('You’re all set, let’s go!')
     onboardingPage.clickThroughTutorial()
 
-    cy.get(libraryPageSelectors.createStudySetButton).click()
+    libraryPage.createStudySet()
     libraryPage.selectSubject("Deutsch")
   })
 

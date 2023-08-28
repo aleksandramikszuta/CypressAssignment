@@ -1,11 +1,15 @@
-import libraryPageSelectors from '../selectors/libraryPage.sel'
+import libraryPageSelectors from '../selectors/library.sel'
 
 function selectSubject(subject){
     cy.get(libraryPageSelectors.subjectDropdown).click()
     cy.get(libraryPageSelectors.subjectListItem).contains(subject).click()
 }
 
-module.exports = {
-    selectSubject: selectSubject
+function createStudySet(){
+    cy.get(libraryPageSelectors.createStudySetButton).click()
+}
 
+module.exports = {
+    selectSubject: selectSubject,
+    createStudySet: createStudySet
 }
