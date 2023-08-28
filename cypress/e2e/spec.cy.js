@@ -26,7 +26,7 @@ describe('Studysmarter page', () => {
     cy.visit('https://demo.studysmarter-test.de');
   })
 
-  xit('should allow a registered user to log in', () => {
+  it('should allow a registered user to log in', () => {
     login(userName, userPassword)
 
     cy.contains('Welcome to StudySmarter!')
@@ -36,7 +36,7 @@ describe('Studysmarter page', () => {
   it('should allow a logged in user to create a study set', () => {
     login(userName, userPassword)
 
-  onboardingPage.performInitialUserConfig()
+    onboardingPage.performInitialUserConfig()
 
     cy.contains('You’re all set, let’s go!')
     onboardingPage.clickThroughTutorial()
@@ -45,10 +45,10 @@ describe('Studysmarter page', () => {
     libraryPage.selectSubject("Deutsch")
   })
 
-  xit('should allow email registration via website', () => {
+  it('should allow email registration via website', () => {
     cy.contains('Sign up with email').click()
 
   });
 
-  
+
 });
