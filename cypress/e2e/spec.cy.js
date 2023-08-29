@@ -48,8 +48,8 @@ describe('Studysmarter page', () => {
     libraryPage.confirmStudySetCreate()
     libraryPage.goToStudySet("Test Studyset")
 
-    cy.contains("Test Studyset")
-    studysetDetailsPage.assertColorEquals("mint")
+    libraryPage.assertNameEquals("Test Studyset")
+    libraryPage.assertColorEquals("mint")
   })
 
   it('should allow email registration via website', () => {

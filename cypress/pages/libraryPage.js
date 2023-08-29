@@ -26,7 +26,7 @@ function assertColorEquals(colorName) {
 }
 
 function assertNameEquals(studySetName) {
-    cy.get(libraryPageSelectors.studySetCardTitle).should('equal', studySetName)
+    cy.get(libraryPageSelectors.studySetCardTitle).should('contain', studySetName)
 }
 
 function goToStudySet(studySetName) {
