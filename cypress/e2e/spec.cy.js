@@ -47,6 +47,19 @@ describe('Studysmarter page', () => {
     onboardingPage.clickThroughTutorial()
 
     libraryPage.createStudySet("Test Studyset", "Deutsch", "mint")
+
+    libraryPage.assertNameEquals("Test Studyset")
+    libraryPage.assertColorEquals("mint")
+  })
+  
+  xit('should show a created flashcard', () => {
+    login(userName, userPassword)
+
+    onboardingPage.performInitialUserConfig()
+    onboardingPage.clickThroughTutorial()
+
+    libraryPage.createStudySet("Test Studyset", "Deutsch", "mint")
+
   });
 
 });
