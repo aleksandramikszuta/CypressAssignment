@@ -12,7 +12,7 @@ function initiateFlashCardCreation() {
     cy.get(studySetDetailSelectors.createFlashCardButton).click()
 }
 
-module.exports ={
+module.exports ={ 
     assertColorEquals: assertColorEquals,
     assertNameEquals: assertNameEquals,
     initiateFlashCardCreation: initiateFlashCardCreation
