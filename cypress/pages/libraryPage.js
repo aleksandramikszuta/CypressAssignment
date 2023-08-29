@@ -5,7 +5,7 @@ function selectSubject(subject){
     cy.get(libraryPageSelectors.subjectListItem).contains(subject).click()
 }
 
-function createStudySet(){
+function initiateStudySetCreation(){
     cy.get(libraryPageSelectors.createStudySetButton).click()
 }
 
@@ -33,13 +33,23 @@ function goToStudySet(studySetName) {
     cy.get(libraryPageSelectors.studySetCardTitle).contains(studySetName).click()
 }
 
+function createStudySet(studySetName, subject, color) {
+    initiateStudySetCreation()
+    selectSubject(subject)
+    setStudySetName(studySetName)
+    selectStudySetColor(color)
+    confirmStudySetCreate()
+    goToStudySet(studySetName)
+}
+
 module.exports = {
     selectSubject: selectSubject,
-    createStudySet: createStudySet,
+    initiateStudySetCreation: initiateStudySetCreation,
     setStudySetName: setStudySetName,
     selectStudySetColor: selectStudySetColor,
     confirmStudySetCreate: confirmStudySetCreate,
     assertColorEquals: assertColorEquals,
     assertNameEquals: assertNameEquals,
-    goToStudySet: goToStudySet
+    goToStudySet: goToStudySet,
+    createStudySet: createStudySet
 }

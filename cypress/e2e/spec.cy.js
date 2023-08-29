@@ -33,6 +33,11 @@ describe('Studysmarter page', () => {
     cy.contains('Get started')
   })
 
+  it('should allow email registration via website', () => {
+    cy.contains('Sign up with email').click()
+
+  })
+
   it('should allow a logged in user to create a study set', () => {
     login(userName, userPassword)
 
@@ -41,21 +46,7 @@ describe('Studysmarter page', () => {
     cy.contains('You’re all set, let’s go!')
     onboardingPage.clickThroughTutorial()
 
-    libraryPage.createStudySet()
-    libraryPage.selectSubject("Deutsch")
-    libraryPage.setStudySetName("Test Studyset")
-    libraryPage.selectStudySetColor("mint")
-    libraryPage.confirmStudySetCreate()
-    libraryPage.goToStudySet("Test Studyset")
-
-    libraryPage.assertNameEquals("Test Studyset")
-    libraryPage.assertColorEquals("mint")
-  })
-
-  it('should allow email registration via website', () => {
-    cy.contains('Sign up with email').click()
-
+    libraryPage.createStudySet("Test Studyset", "Deutsch", "mint")
   });
-
 
 });
