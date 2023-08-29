@@ -8,7 +8,12 @@ function assertNameEquals(studySetName) {
     cy.get(studySetDetailSelectors.studySetName).should('equal', studySetName)
 }
 
+function initiateFlashCardCreation() {
+    cy.get(studySetDetailSelectors.createFlashCardButton).click()
+}
+
 module.exports ={
     assertColorEquals: assertColorEquals,
-    assertNameEquals: assertNameEquals
+    assertNameEquals: assertNameEquals,
+    initiateFlashCardCreation: initiateFlashCardCreation
 }

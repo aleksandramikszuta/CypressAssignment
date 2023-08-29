@@ -8,6 +8,7 @@ import libraryPageSelectors from '../selectors/library.sel'
 import libraryPage from '../pages/libraryPage'
 import onboardingPage from '../pages/onboardingPage'
 import studysetDetailsPage from '../pages/studySetDetailsPage'
+import userHomePage from '../pages/userHomePage'
 
 function login(userName, userPassword) {
   homePage.goToLoginPage()
@@ -52,13 +53,13 @@ describe('Studysmarter page', () => {
     libraryPage.assertColorEquals("mint")
   })
   
-  xit('should show a created flashcard', () => {
+  it('should show a created flashcard', () => {
     login(userName, userPassword)
 
-    onboardingPage.performInitialUserConfig()
-    onboardingPage.clickThroughTutorial()
-
-    libraryPage.createStudySet("Test Studyset", "Deutsch", "mint")
+    userHomePage.skipWhatsNew()
+    userHomePage.goToLibrary()
+    libraryPage.goToStudySet("Test Studyset")
+    studysetDetailsPage.initiateFlashCardCreation()
 
   });
 
